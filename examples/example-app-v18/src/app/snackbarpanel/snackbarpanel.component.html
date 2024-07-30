@@ -1,0 +1,22 @@
+<div>
+  <strong>
+    {{ data.title }}
+  </strong>
+  @for (error of data.errors | keyvalue; track error.key) {
+    <div>
+      {{ error.key }}
+      <ul>
+        @for (m of error.value; track m) {
+          <li>{{ m }}</li>
+        }
+      </ul>
+    </div>
+  }
+
+  <button
+    mat-button
+    color="accent"
+    (click)="snackBarRef.dismiss()">
+    close
+  </button>
+</div>
